@@ -13,10 +13,15 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
+gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
