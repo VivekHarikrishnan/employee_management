@@ -1,0 +1,2 @@
+class FullTimeProject < Project
+end

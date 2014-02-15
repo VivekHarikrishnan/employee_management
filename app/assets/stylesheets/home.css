@@ -6,3 +6,33 @@
 body, input, textarea {
 	font-family: Helvetica;
 }
+
+#admin_header {
+    background-color: #1B1B1B;
+    background-image: linear-gradient(to bottom, #222222, #111111);
+    background-repeat: repeat-x;
+    border-color: #252525;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    position: absolute;
+    width: 939px;
+}
+
+#admin_header a{
+    color: #999999;
+    display: inline;
+    font-family: Helvetica;
+    font-size: 14px;
+    padding-right: 25px;
+    text-decoration: none;
+    text-shadow: 1px 1px black;
+}
+
+#admin_header a:hover, #admin_header a.selected{
+	color: #FFFFFF;
+}
+
+#employee_header {
+	
+}

@@ -10,7 +10,13 @@
 	<div id="wrapper">
 		<%= render 'shared/header' %>
 		<div id="page_content">
-			<%= yield %>
+			<% if current_employee %>
+				<%= render 'shared/employee_header' if !current_employee.is?("Admin") %>
+				<%= render 'shared/admin_header' if current_employee.is?("Admin") %>
+			<% end%>
+			<div id="container">
+				<%= yield %>
+			</div>			
 		</div>
 		<%= render 'shared/footer' %>
 	</div>

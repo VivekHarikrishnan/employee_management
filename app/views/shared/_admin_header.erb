@@ -1,0 +1,6 @@
+<nav id="admin_header">
+	<%= link_to "Projects" , projects_path, :class => decide_selection_for('projects') %>
+	<%= link_to "Project Tasks", project_tasks_path, :class => decide_selection_for('project_tasks') %>
+	<%= link_to "Employees", employees_path, :class => decide_selection_for('employees') %>
+	<%= link_to "Logout", logout_path, :method => :post %>
+</nav>

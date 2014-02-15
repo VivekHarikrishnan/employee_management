@@ -1,4 +1,5 @@
 class ProjectTasksController < ApplicationController
+  before_filter :require_login
   before_action :set_project_task, only: [:show, :edit, :update, :destroy]
 
   # GET /project_tasks

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @employee.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @employee.designation %>
+</p>
+
+<p>
+  <strong>Qualification:</strong>
+  <%= @employee.qualification %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @employee.experience %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @employee.address %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @employee.type %>
+</p>
+
+<p>
+  <strong>Projects:</strong>
+  <% @employee.projects.each do |projects| %>
+    <%= link_to 'Show', project %>
+  <% %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path, :class => "backButton" %>
