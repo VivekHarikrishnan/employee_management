@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.destroy
+    @project.update_attribute(:is_deleted, true)
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }

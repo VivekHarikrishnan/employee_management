@@ -1,5 +1,6 @@
+<% if @employees.present? %>
 <h1>Listing employees</h1>
-
+<%= link_to 'Add New Employee', new_employee_path %>
 <table>
   <thead>
     <tr>
@@ -30,12 +31,15 @@
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Assign Projects', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Manage Projects', manage_projects_path(to: employee.id), :style => "margin: 0;" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% else %>
+<h1>No Employees in the system</h1>
 <%= link_to 'Add New Employee', new_employee_path %>
+<% end %>
+

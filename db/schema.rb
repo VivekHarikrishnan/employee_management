@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215095254) do
+ActiveRecord::Schema.define(version: 20140215102953) do
 
   create_table "employees", force: true do |t|
     t.string   "code"
@@ -21,10 +21,18 @@ ActiveRecord::Schema.define(version: 20140215095254) do
     t.string   "university"
     t.string   "college"
     t.string   "city"
-    t.decimal  "experience",      precision: 10, scale: 0
+    t.decimal  "experience",      precision: 10, scale: 2
     t.text     "address"
     t.string   "password_digest"
     t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_deleted",                               default: false
+  end
+
+  create_table "employees_projects", force: true do |t|
+    t.integer  "employee_id"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140215095254) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_deleted", default: false
   end
 
 end

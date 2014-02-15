@@ -1,5 +1,7 @@
 class Employee < ActiveRecord::Base
+	default_scope :conditions => ["is_deleted = ?", "false"]
 	has_secure_password
+	has_and_belongs_to_many :projects
 
 	validates :code, :presence => true, :uniqueness => true
 	validates :name, :presence => true
@@ -23,6 +25,10 @@ class Employee < ActiveRecord::Base
 		"MBA" => "mba"
 	}
 
+	def self.valid_employees
+		where("type != 'Admin'")
+	end
+
 	def is?(emp_type)
 		self.type == emp_type.to_s
 	end
@@ -32,11 +38,11 @@ class Employee < ActiveRecord::Base
 	end
 
 	def degree_to_s
-		DEGREES.to_a[DEGREES.values.index(degree)].first
+		DEGREES.values.index(degree) ? DEGREES.to_a[DEGREES.values.index(degree)].first : ""
 	end
 
 	def type_to_s
-		DEGREES.to_a[DEGREES.values.index(degree)].first
+		TYPES.values.index(type) ? TYPES.to_a[TYPES.values.index(type)].first : ""
 	end
 
 	def experience_to_s
@@ -46,7 +52,7 @@ class Employee < ActiveRecord::Base
 
 	def update_neccessary_fields
 		last_emp = Employee.last
-		cur_code_id = last_emp.code.sub("EMP", "").to_i + 1
+		cur_code_id = last_emp ? (last_emp.code.sub("EMP", "").to_i + 1) : "EMP0001"
 		self.code = "EMP#{"%04d" % cur_code_id}"
 		self.password = "password"
 		self.password_confirmation = "password"

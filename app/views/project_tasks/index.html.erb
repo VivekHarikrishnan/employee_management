@@ -1,5 +1,6 @@
+<% if @project_tasks.present? %>
 <h1>Listing project_tasks</h1>
-
+<%= link_to 'Add New Project task', new_project_task_path %>
 <table>
   <thead>
     <tr>
@@ -24,4 +25,8 @@
 
 <br>
 
+
+<% else %>
+<h1>No Project Tasks added</h1>
 <%= link_to 'Add New Project task', new_project_task_path %>
+<% end %>

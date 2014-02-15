@@ -56,10 +56,31 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    @employee.destroy
+    @employee.update_attribute(:is_deleted, true)
     respond_to do |format|
       format.html { redirect_to employees_url }
       format.json { head :no_content }
+    end
+  end
+
+  def new_project
+    @employee = Employee.where(["id = ?", params[:to]]).first
+  end
+
+  def create_project
+    @employee = Employee.where(["id = ?", params[:employee][:to]]).first
+
+    if @employee
+      @employee.projects = []
+      if params[:project_ids].present?
+        params[:project_ids].each do |project_id|
+          @employee.projects << Project.find(project_id)
+        end
+      end
+
+      redirect_to @employee
+    else
+      redirect_to employees_path
     end
   end
 

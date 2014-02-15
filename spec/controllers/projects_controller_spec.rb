@@ -20,10 +20,15 @@ require 'spec_helper'
 
 describe ProjectsController do
 
+  before do
+    @employee = FactoryGirl.create(:employee, :type => "FullTimeEmployee")
+    session[:employee_session_token] = @employee.id
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Project. As you add validations to Project, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { "name" => "PQRS Project", "client" => "ABC Client", "type" => "FullTimeProject" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -84,15 +89,15 @@ describe ProjectsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved project as @project" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        post :create, {:project => { "name" => "invalid value" }}, valid_session
+        # Project.any_instance.stub(:save).and_return(false)
+        post :create, {:project => { "name" => "" }}, valid_session
         expect(assigns(:project)).to be_a_new(Project)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        post :create, {:project => { "name" => "invalid value" }}, valid_session
+        # Project.any_instance.stub(:save).and_return(false)
+        post :create, {:project => { "name" => "" }}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -127,16 +132,16 @@ describe ProjectsController do
       it "assigns the project as @project" do
         project = Project.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project.to_param, :project => { "name" => "invalid value" }}, valid_session
+        # Project.any_instance.stub(:save).and_return(false)
+        put :update, {:id => project.to_param, :project => { "name" => "" }}, valid_session
         expect(assigns(:project)).to eq(project)
       end
 
       it "re-renders the 'edit' template" do
         project = Project.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project.to_param, :project => { "name" => "invalid value" }}, valid_session
+        # Project.any_instance.stub(:save).and_return(false)
+        put :update, {:id => project.to_param, :project => { "name" => "" }}, valid_session
         expect(response).to render_template("edit")
       end
     end

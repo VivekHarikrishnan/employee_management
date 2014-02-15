@@ -98,14 +98,15 @@ div.actions input[type=submit]:hover {
   list-style: square;
 }
 
-#page_content h1 {
+#page_content h1, #page_content h2 {
   padding-left: 15px;
 }
 
 table {
   border-collapse: collapse;
   margin-left: 15px;
-   margin-right: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
 }
 
 table th {
@@ -113,7 +114,7 @@ table th {
 }
 
 table td, table th {
-    border: 1px solid #DDDDDD;
+    border: 1px solid #BFBFBF;
     padding: 10px ;
     width: 100px;
 }

@@ -37,9 +37,9 @@
 
 <p>
   <strong>Projects:</strong>
-  <% @employee.projects.each do |projects| %>
-    <%= link_to 'Show', project %>
-  <% %>
+  <% @employee.projects.each do |project| %>
+    <%= link_to project.name, project %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

@@ -20,10 +20,15 @@ require 'spec_helper'
 
 describe EmployeesController do
 
+  before do
+    @employee = FactoryGirl.create(:employee, :type => "FullTimeEmployee")
+    session[:employee_session_token] = @employee.id
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Employee. As you add validations to Employee, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { {"type" => "FullTimeEmployee", "code" => "CODE", "name" => "Name", "designation" => "Designation", "password" => "password", "password_confirmation" => "password"} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -34,7 +39,7 @@ describe EmployeesController do
     it "assigns all employees as @employees" do
       employee = Employee.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:employees)).to eq([employee])
+      expect(assigns(:employees)).to include(employee)
     end
   end
 
@@ -84,7 +89,7 @@ describe EmployeesController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved employee as @employee" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Employee.any_instance.stub(:save).and_return(false)
+        # Employee.any_instance.stub(:save).and_return(false)
         post :create, {:employee => {  }}, valid_session
         expect(assigns(:employee)).to be_a_new(Employee)
       end
@@ -106,8 +111,8 @@ describe EmployeesController do
         # specifies that the Employee created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        expect_any_instance_of(Employee).to receive(:update).with({ "these" => "params" })
-        put :update, {:id => employee.to_param, :employee => { "these" => "params" }}, valid_session
+        expect_any_instance_of(Employee).to receive(:update).with({ "experience" => 1.0 })
+        put :update, {:id => employee.to_param, :employee => { "experience" => "1.0" }}, valid_session
       end
 
       it "assigns the requested employee as @employee" do

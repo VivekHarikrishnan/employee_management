@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :employee do
-    sequence(:code) { |n| "EMPCODE#{n}" }
+    sequence(:code) { |n| "EMP000#{n}" }
     sequence(:name) { |n| "Employee#{n}" }    
     designation "Techical Architect"
     degree "B.E"

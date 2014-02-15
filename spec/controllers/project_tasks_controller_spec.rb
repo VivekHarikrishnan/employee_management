@@ -19,6 +19,11 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe ProjectTasksController do
+  before do
+    @employee = FactoryGirl.create(:employee, :type => "FullTimeEmployee")
+    session[:employee_session_token] = @employee.id
+  end
+
 
   # This should return the minimal set of attributes required to create a valid
   # ProjectTask. As you add validations to ProjectTask, be sure to
@@ -84,15 +89,15 @@ describe ProjectTasksController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved project_task as @project_task" do
         # Trigger the behavior that occurs when invalid params are submitted
-        ProjectTask.any_instance.stub(:save).and_return(false)
-        post :create, {:project_task => { "name" => "invalid value" }}, valid_session
+        # ProjectTask.any_instance.stub(:save).and_return(false)
+        post :create, {:project_task => { "name" => "" }}, valid_session
         expect(assigns(:project_task)).to be_a_new(ProjectTask)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        ProjectTask.any_instance.stub(:save).and_return(false)
-        post :create, {:project_task => { "name" => "invalid value" }}, valid_session
+        # ProjectTask.any_instance.stub(:save).and_return(false)
+        post :create, {:project_task => { "name" => "" }}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -127,16 +132,16 @@ describe ProjectTasksController do
       it "assigns the project_task as @project_task" do
         project_task = ProjectTask.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        ProjectTask.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project_task.to_param, :project_task => { "name" => "invalid value" }}, valid_session
+        # ProjectTask.any_instance.stub(:save).and_return(false)
+        put :update, {:id => project_task.to_param, :project_task => { "name" => "" }}, valid_session
         expect(assigns(:project_task)).to eq(project_task)
       end
 
       it "re-renders the 'edit' template" do
         project_task = ProjectTask.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        ProjectTask.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project_task.to_param, :project_task => { "name" => "invalid value" }}, valid_session
+        # ProjectTask.any_instance.stub(:save).and_return(false)
+        put :update, {:id => project_task.to_param, :project_task => { "name" => "" }}, valid_session
         expect(response).to render_template("edit")
       end
     end

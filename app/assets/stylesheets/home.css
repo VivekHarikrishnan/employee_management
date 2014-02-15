@@ -17,6 +17,8 @@ body, input, textarea {
     padding-top: 10px;
     position: absolute;
     width: 939px;
+    box-shadow: 0 1px 1px #C4C4C4 inset, 0 0 8px #9B9B9B;
+    outline: 0 none;    
 }
 
 #admin_header a{
@@ -31,8 +33,4 @@ body, input, textarea {
 
 #admin_header a:hover, #admin_header a.selected{
 	color: #FFFFFF;
-}
-
-#employee_header {
-	
 }

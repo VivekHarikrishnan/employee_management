@@ -14,6 +14,8 @@ EmployeeManagement::Application.routes.draw do
   match '/login', to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: :post
   match '/home', to: 'home#index', via: :get
+  match '/manage_projects', to: 'employees#new_project', via: :get
+  match '/assign', to: 'employees#create_project', via: :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

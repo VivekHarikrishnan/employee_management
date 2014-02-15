@@ -1,3 +1,29 @@
+<script type="text/javascript">
+$(document).ready(function(){
+  $("input[type=text], textarea").bind("focus", function(){
+    $(this).css("border-color", "").css("background-color", "")
+  });
+
+  $("input[type=submit]").bind("click", function(){
+    var valid_form = true;
+
+    $.each($("input[type=text], textarea"), function(i, e){
+      if($(e).val() == "") {
+        $(e).css("border-color", "#B94A48").css("background-color", "#F2DEDE");
+        valid_form = false;
+      }  
+    });
+
+    if(!valid_form) {
+      $(".errorMessage").show();
+    }
+    
+
+    return valid_form;
+  });
+});  
+</script>
+
 <%= form_for(@employee) do |f| %>
   <% if @employee.errors.any? %>
     <div id="error_explanation">
@@ -51,4 +77,5 @@
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
+  <div class="errorMessage">There are errors in creating employee</div>
 <% end %>

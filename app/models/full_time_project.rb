@@ -1,2 +1,2 @@
-class FullTimeProject < Project
+class FullTimeProject < Project	
 end
