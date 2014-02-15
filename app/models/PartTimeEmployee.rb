@@ -1,2 +1,0 @@
-class PartTimeEmployee < Employee
-end
