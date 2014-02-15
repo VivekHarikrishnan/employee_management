@@ -1,0 +1,2 @@
+class PartTimeEmployee < Employee
+end

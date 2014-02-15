@@ -2,3 +2,93 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+body {
+	font-family: Helvetica;
+}
+
+#wrapper {	    
+	background-color: #F6F6F6;
+    height: 640px;
+}
+
+header {
+    background-color: #696969;
+    height: 60px;
+    text-align: center;
+}
+
+header h1 {	
+    color: #E7E7E7;
+    font-size: 2.7em;
+    padding-top: 3px;
+    text-shadow: 5px 5px 5px #000000;
+}
+
+#page_content {
+    height: 500px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+footer {
+	background-color: #696969;
+    height: 60px;
+}
+
+#loginForm {
+
+}
+
+#loginForm div{
+    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-left: 300px;
+}
+
+#loginForm input[type=text], #loginForm input[type=password]{
+    height: 15px;
+    padding: 8px;
+    width: 340px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #B7B7B7;
+}
+
+#loginForm input[type="text"]:focus, #loginForm input[type=password]:focus {
+	box-shadow: 0 1px 1px #C4C4C4 inset, 0 0 8px #9B9B9B;
+    outline: 0 none;    
+}
+
+#loginForm select{
+    height: 30px;
+    padding-left: 15px;
+    padding-top: 3px;
+    width: 200px;
+}
+
+
+#loginForm input[type=submit]{
+    background-image: linear-gradient(to bottom, #B7B7B7, #3A3A3A);
+    border: 1px none;
+    color: #FFFFFF;
+    font-size: 18px;
+    height: 35px;
+    width: 130px;
+    cursor: pointer;
+}
+
+#loginForm input[type=submit]:hover{
+    background-image: linear-gradient(to bottom, #3A3A3A, #B7B7B7);
+}
+
+.errorMessage {
+	display: none;
+    padding-bottom: 10px;
+    padding-top: 10px;	
+    padding-left: 370px;
+    background-color: #F2DEDE;
+    border-color: #EED3D7;
+    color: #B94A48;
+}

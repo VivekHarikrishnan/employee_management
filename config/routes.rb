@@ -1,10 +1,18 @@
 EmployeeManagement::Application.routes.draw do  
+  resources :project_tasks
+
+  resources :projects
+
   resources :employees
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/login', to: 'sessions#new', via: :get
+  match '/logout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'sessions#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

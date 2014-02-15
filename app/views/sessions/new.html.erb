@@ -1,0 +1,19 @@
+<div class="errorMessage" style="<%= 'display:block;' if flash.now[:error].present? %>">
+	<%= flash.now[:error] %>
+</div>
+<div id="loginForm">
+	<%= form_for :sessions, url: sessions_path do |form| %>	
+		<div>
+			<%= form.text_field :employee_code, :placeholder => "Enter your employee code here" %>	
+		</div>
+		<div>
+			<%= form.password_field :password, :placeholder => "Password" %>
+		</div>
+		<div>
+			<%= form.select :employee_type, options_for_select(Employee::TYPES) %>
+		</div>
+		<div>
+			<%= form.submit "Login" %>
+		</div>
+	<% end %>
+</div>
