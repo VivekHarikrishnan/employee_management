@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+#wrapper {	    
+	background-color: #F6F6F6;
+    height: 640px;
+    margin: 20px 100px 0px 100px;
+}
+
+header {
+	text-align: center;
+}
+
+/*header hgroup h1 {
+	background-color: #696969;
+    color: #E7E7E7;
+    font-size: 2.7em;
+    text-shadow: 5px 5px 5px #000000;
+}*/
+
+footer {
+	
+}
