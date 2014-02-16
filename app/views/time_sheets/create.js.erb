@@ -1,0 +1,7 @@
+<% if @time_sheet.errors.blank? %>
+$(".errorMessage").hide();
+$(".listTimeSheet").html('<%= escape_javascript(render 'list') %>');
+<% else %>
+$(".errorMessage").html("<%= mes = ''; @time_sheet.errors.messages.each_pair {|field, message| mes += "#{field} - #{message.to_sentence}, " }; mes %>")
+$(".errorMessage").show();
+<% end %>

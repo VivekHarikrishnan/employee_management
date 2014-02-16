@@ -11,5 +11,20 @@ require 'spec_helper'
 #   end
 # end
 describe SessionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+  	@employee = FactoryGirl.create(:employee, :type => "Admin")
+  end
+
+  it "stores session details" do
+  	helper.save_session_details(@employee)
+
+  	session[:employee_session_token].should eq(@employee.id) 
+  end
+
+  it "deletes sesion details" do
+  	helper.save_session_details(@employee)
+  	helper.destroy_session_details
+
+  	session[:employee_session_token].should be_nil
+  end
 end

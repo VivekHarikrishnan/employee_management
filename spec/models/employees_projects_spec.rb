@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe EmployeesProjects do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { @employees_projects = FactoryGirl.create(:employees_project) }
+
+  it { should respond_to(:employee_id) }
+  it { should respond_to(:project_id) }
 end

@@ -1,0 +1,25 @@
+<%= form_for(@time_sheet, remote: true) do |f| %>
+	<div class="fields">
+		<%= label_tag 'time_sheet_project_id', 'Project' %>
+		<%= select_tag 'time_sheet[project_id]', options_for_select(@projects.map {|p| [p.name, p.id] }), :prompt => "Select a Project" %>
+	</div>
+	<div class="fields">	
+		<%= label_tag 'time_sheet_project_task_id', 'Task' %>
+		<%= select_tag 'time_sheet[project_task_id]', options_for_select(@project_tasks.map {|p| [p.name, p.id] }), :prompt => "Select a Task" %>
+	</div>
+	<div class="fields">	
+		<%= label_tag 'time_sheet_date_of_sheet', 'Date' %>
+		<%= text_field_tag 'time_sheet[date_of_sheet]' %>
+	</div>
+	<div class="fields">	
+		<%= label_tag 'time_sheet_from_time', 'From Time' %>
+		<%= time_select 'time_sheet', 'from_time', prompt: { hour: "HH", minute: "MM" }, ampm: true, :minute_step => 10 %>
+	</div>
+	<div class="fields">	
+		<%= label_tag 'time_sheet_to_time', 'To Time' %>
+		<%= time_select 'time_sheet', 'to_time', prompt: { hour: "HH", minute: "MM" }, ampm: true, :minute_step => 10 %>
+	</div>
+	<div class="submitAction">
+		<%= submit_tag "Save Time Sheet" %>
+	</div>
+<% end %>

@@ -92,9 +92,7 @@ input[type="text"]:focus, input[type=password]:focus, textarea:focus {
 
 .errorMessage {
 	display: none;
-    padding-bottom: 10px;
-    padding-top: 10px;	
-    padding-left: 370px;
+    padding: 10px 100px 10px 370px;
     background-color: #F2DEDE;
     border-color: #EED3D7;
     color: #B94A48;

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe ProjectTask do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { @project_task = FactoryGirl.create(:project_task) }
+
+  it { should respond_to(:name) }
 end

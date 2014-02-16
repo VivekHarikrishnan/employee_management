@@ -1,7 +1,11 @@
 class Employee < ActiveRecord::Base
 	default_scope :conditions => ["is_deleted = ?", "false"]
 	has_secure_password
+	
 	has_and_belongs_to_many :projects
+	has_many :employees_projects, :class_name => "EmployeesProjects"
+	has_many :time_sheets, -> { where(["time_sheets.date_of_sheet = ?", Date.today]) }, :through => :employees_projects
+	has_many :all_time_sheets, :through => :employees_projects
 
 	validates :code, :presence => true, :uniqueness => true
 	validates :name, :presence => true

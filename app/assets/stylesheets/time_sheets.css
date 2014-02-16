@@ -1,0 +1,47 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.newTimeSheet {
+   padding-left: 15px;
+   padding-top: 15px;
+   padding-bottom: 10px;
+   border: 1px solid #afafaf;
+   border-left: 0 none;
+   border-right: 0 none;   
+   box-shadow: 0 1px 1px #FFFFFF inset, 0 0 8px #000000;
+}
+
+.newTimeSheet label{
+
+}
+
+.newTimeSheet div.fields{
+    display: inline-block;
+    height: 35px;
+    width: 295px;
+}
+
+.newTimeSheet select{
+
+}
+
+.newTimeSheet input[type=submit]{
+    background-image: linear-gradient(to bottom, #B7B7B7, #3A3A3A);
+    border: 1px solid #AFAFAF;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 11px;
+    height: 25px;
+}
+
+.newTimeSheet input[type=submit]:hover {
+	font-weight: bold;
+	border: 1px solid #515151;
+}
+
+.listTimeSheet {
+
+}

@@ -1,4 +1,5 @@
 EmployeeManagement::Application.routes.draw do  
+  resources :time_sheets
   resources :project_tasks
 
   resources :projects

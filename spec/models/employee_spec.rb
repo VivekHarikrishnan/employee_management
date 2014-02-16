@@ -15,6 +15,8 @@ describe Employee do
   it { should respond_to :address }
   it { should respond_to :password }
   it { should respond_to :password_confirmation }
+  it { should respond_to :is_deleted }
+  it { should respond_to :time_sheets }
 
   it {should be_valid}
 
