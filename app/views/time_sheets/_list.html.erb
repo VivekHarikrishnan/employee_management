@@ -17,7 +17,7 @@
   		   	<td><%= time_sheet.project.name %></td>
   		   	<td><%= time_sheet.project_task.name %></td>
   		   	<td><%= time_sheet.date_of_sheet %></td>
-  		   	<td><%= "#{time_sheet.from_time.strftime("%H:%M %p")} - #{time_sheet.to_time.strftime("%H:%M %p")}" %></td>
+  		   	<td><%= "#{time_sheet.from_time.strftime("%I:%M %p")} - #{time_sheet.to_time.strftime("%I:%M %p")}" %></td>
   		   	<td><%= time_sheet.total_hours %></td>		   	
   		   </tr>
   	   <% end %>
