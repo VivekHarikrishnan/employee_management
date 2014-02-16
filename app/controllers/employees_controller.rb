@@ -84,10 +84,27 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def manage_account
+    @employee = current_employee
+  end
+
+  def update_password
+    @employee = current_employee
+    if @employee.update_attributes(update_pwd_params)
+      redirect_to home_path
+    else
+      render 'manage_account'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
+    end
+
+    def update_pwd_params
+      params.require(:employee).permit(:password, :password_confirmation)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

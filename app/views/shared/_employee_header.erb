@@ -1,4 +1,5 @@
 <nav id="admin_header">
 	<%= link_to "TimeSheet" , time_sheets_path, :class => decide_selection_for('time_sheets') %>
+	<%= link_to "Account" , manage_account_path, :class => decide_selection_for('employees') %>
 	<%= link_to "Logout", logout_path, :method => :post %>
 </nav>

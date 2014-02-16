@@ -2,7 +2,11 @@ class TimeSheetsController < ApplicationController
 	before_filter :require_login
 
 	def index
-		@time_sheets = current_employee.time_sheets
+		if params[:history]
+			@time_sheets = current_employee.all_time_sheets
+		else
+			@time_sheets = current_employee.time_sheets
+		end
 		@projects = current_employee.projects
 		@project_tasks = ProjectTask.all
 		@time_sheet = TimeSheet.new
@@ -26,6 +30,7 @@ class TimeSheetsController < ApplicationController
 
 	private
 	def time_sheet_params
+		params[:time_sheet][:date_of_sheet] = "#{params[:time_sheet]["date_of_sheet(1i)"]}-#{params[:time_sheet]["date_of_sheet(2i)"]}-#{params[:time_sheet]["date_of_sheet(3i)"]}"
 		params[:time_sheet][:from_time] = "#{params[:time_sheet]["from_time(4i)"]}:#{params[:time_sheet]["from_time(5i)"]}"
 		params[:time_sheet][:to_time] = "#{params[:time_sheet]["to_time(4i)"]}:#{params[:time_sheet]["to_time(5i)"]}"
 		params.require(:time_sheet).permit(:employees_projects_id, :project_task_id, :date_of_sheet, :from_time, :to_time)

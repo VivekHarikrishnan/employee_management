@@ -9,17 +9,19 @@
 	</div>
 	<div class="fields">	
 		<%= label_tag 'time_sheet_date_of_sheet', 'Date' %>
-		<%= text_field_tag 'time_sheet[date_of_sheet]' %>
+		<%#= text_field_tag 'time_sheet[date_of_sheet]' %>
+		<%= date_select 'time_sheet', 'date_of_sheet', :selected => Date.today %>
 	</div>
 	<div class="fields">	
 		<%= label_tag 'time_sheet_from_time', 'From Time' %>
-		<%= time_select 'time_sheet', 'from_time', prompt: { hour: "HH", minute: "MM" }, ampm: true, :minute_step => 10 %>
+		<%= time_select 'time_sheet', 'from_time', ampm: true, :minute_step => 10 %>
 	</div>
 	<div class="fields">	
 		<%= label_tag 'time_sheet_to_time', 'To Time' %>
-		<%= time_select 'time_sheet', 'to_time', prompt: { hour: "HH", minute: "MM" }, ampm: true, :minute_step => 10 %>
+		<%= time_select 'time_sheet', 'to_time', ampm: true, :minute_step => 10 %>
 	</div>
 	<div class="submitAction">
 		<%= submit_tag "Save Time Sheet" %>
+		<%= image_tag "ajax_loader.gif" %>
 	</div>
 <% end %>

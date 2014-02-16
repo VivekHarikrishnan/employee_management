@@ -8,8 +8,15 @@ $(function(){
 
   $("input[type=submit]").bind("click", function(){
     var valid_form = true;
+    if($("input[type=password]#employee_password").val() === $("input[type=password]#employee_password_confirmation").val()) {
+      valid_form = true;
+    }
+    else {
+      $("input[type=password]#employee_password, input[type=password]#employee_password_confirmation").css("border-color", "#B94A48").css("background-color", "#F2DEDE");
+      valid_form = false;
+    }
 
-    $.each($("input[type=text], textarea"), function(i, e){
+    $.each($("input[type=text], input[type=password], textarea"), function(i, e){
       if($(e).val() == "") {
         $(e).css("border-color", "#B94A48").css("background-color", "#F2DEDE");
         valid_form = false;

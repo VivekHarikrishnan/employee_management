@@ -3,6 +3,10 @@
 <div class="newTimeSheet">
 	<%= render 'form' %>
 </div>
+<div class="timeSheetLinks">
+  <%= link_to "Today's Sheet", time_sheets_path, :remote => true, :onclick => "showOverLay(); setSelectedTab(this); return true;", :class => (params[:history].blank? ? "selectedTab" : "unSelectedTab") %>
+    <%= link_to "History", time_sheets_path(:history => true), :remote => true, :onclick => "showOverLay(); setSelectedTab(this); return true;", :class => (params[:history].present? ? "selectedTab" : "unSelectedTab") %>
+</div>
 <div class="listTimeSheet">
 <%= render 'list' %>
 </div>

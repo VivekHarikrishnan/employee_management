@@ -1,25 +1,26 @@
-<table>
-  <thead>
-    <tr>
-      <th>Project</th>
-      <th>Task</th>
-      <th>Date</th>
-      <th>From Time</th>
-      <th>To Time</th>
-      <th>Total Time</th>
-    </tr>
-  </thead>
-   
-   <tbody>
-	   <% @time_sheets.each do |time_sheet| %>
-		   <tr>
-		   	<td><%= time_sheet.project.name %></td>
-		   	<td><%= time_sheet.project_task.name %></td>
-		   	<td><%= time_sheet.date_of_sheet %></td>
-		   	<td><%= time_sheet.from_time %></td>
-		   	<td><%= time_sheet.to_time %></td>
-		   	<td><%= time_sheet.total_hours %></td>		   	
-		   </tr>
-	   <% end %>
-   </tbody>
-</table>
+<div class="timeSheetTable">
+  <div class="timeSheetOverlay"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Task</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Total Time</th>
+      </tr>
+    </thead>
+     
+     <tbody>
+  	   <% @time_sheets.each do |time_sheet| %>
+  		   <tr>
+  		   	<td><%= time_sheet.project.name %></td>
+  		   	<td><%= time_sheet.project_task.name %></td>
+  		   	<td><%= time_sheet.date_of_sheet %></td>
+  		   	<td><%= "#{time_sheet.from_time.strftime("%H:%M %p")} - #{time_sheet.to_time.strftime("%H:%M %p")}" %></td>
+  		   	<td><%= time_sheet.total_hours %></td>		   	
+  		   </tr>
+  	   <% end %>
+     </tbody>
+  </table>
+</div>

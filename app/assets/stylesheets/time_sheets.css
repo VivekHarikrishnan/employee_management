@@ -14,17 +14,28 @@
 }
 
 .newTimeSheet label{
-
+    color: #3C3C3C;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 .newTimeSheet div.fields{
     display: inline-block;
     height: 35px;
-    width: 295px;
+    width: 290px;
 }
 
-.newTimeSheet select{
+.newTimeSheet div.submitAction{
+	margin-bottom: 5px;
+}
 
+.newTimeSheet div.submitAction img{
+    display: none;
+    margin-left: 10px;
+    margin-top: 1px;
+    padding-top: 0;
+    position: absolute;
+    width: 20px;
 }
 
 .newTimeSheet input[type=submit]{
@@ -43,5 +54,53 @@
 }
 
 .listTimeSheet {
+	margin-top: 5px;
+}
 
+.timeSheetTable {
+
+}
+
+.timeSheetOverlay {
+	display: none;
+	background-color: #E3E3E3;
+    background-image: url("/assets/ajax_loader.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 238px;
+    position: absolute;
+    width: 933px;
+}
+
+.timeSheetLinks {
+	margin-top: 10px;
+}
+
+
+.unSelectedTab {
+    background: linear-gradient(to bottom, #B7B7B7, #3A3A3A) repeat scroll 0 0 transparent;
+
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.unSelectedTab:hover {
+    background: linear-gradient(to bottom, #3A3A3A, #B7B7B7) repeat scroll 0 0 transparent;
+
+}
+
+
+.selectedTab {
+    background: linear-gradient(to bottom, #FEFEFE, #D0D0D0) repeat scroll 0 0 transparent;
+    border: 1px solid #BFBFBF;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.selectedTab:hover {
+  background: linear-gradient(to bottom, #D0D0D0, #FEFEFE) repeat scroll 0 0 transparent;
 }

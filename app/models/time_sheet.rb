@@ -39,7 +39,7 @@ class TimeSheet < ActiveRecord::Base
 	end
 
 	def from_time_less_than_to_time
-		errors.add(:from_time, "must be less than to time") if from_time && to_time && (to_time < from_time)		
+		errors.add(:from_time, "must be less than to time") if from_time && to_time && (to_time <= from_time)
 	end
 
 	def time_entries

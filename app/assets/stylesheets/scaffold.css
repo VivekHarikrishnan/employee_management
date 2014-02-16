@@ -21,7 +21,7 @@ div.field, div.actions {
 div.field label {
 }
 
-div.field input[type=text] {
+div.field input[type=text], div.field input[type=password] {
     height: 20px;
     padding: 5px;
     width: 300px;
