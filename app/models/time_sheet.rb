@@ -47,7 +47,11 @@ class TimeSheet < ActiveRecord::Base
 			max_hour = project.type == "FullTimeProject" ? FULL_TIME_MAX_WORKING_HOURS : PART_TIME_MAX_WORKING_HOURS
 			errors.add(:to_time, "must be less than maximum working hours #{max_hour}") if (hours(total_seconds) > max_hour)
 			if employee
-				existing_entries_millis = employee.time_sheets.select("SUM(to_time-from_time) as time_millis").group("date_of_sheet").map(&:time_millis).first
+				if Rails.env != "production"
+					existing_entries_millis = employee.time_sheets.select("SUM(to_time-from_time) as time_millis").group("date_of_sheet").map(&:time_millis).first
+				else
+					existing_entries_millis = employee.time_sheets.select("SUM(to_time-from_time) as time_millis").group("date_of_sheet, to_time, from_time").map(&:time_millis).first
+				end
 				if existing_entries_millis
 					existing_entries_time = existing_entries_millis / 10000.0
 					if from_time && to_time
