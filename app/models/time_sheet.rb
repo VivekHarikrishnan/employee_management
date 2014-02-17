@@ -51,8 +51,10 @@ class TimeSheet < ActiveRecord::Base
 					existing_entries_millis = employee.time_sheets.select("SUM(to_time-from_time) as time_millis").group("date_of_sheet").map(&:time_millis).first
 				else
 					existing_entries_millis = employee.time_sheets.select("SUM(to_time-from_time) as time_millis").group("date_of_sheet, to_time, from_time").map(&:time_millis).first
-					h, m ,s = existing_entries_millis.split(":").map(&:to_i)
-					existing_entries_millis = h * 10000.0 + m * 100.0
+					if existing_entries_millis
+						h, m ,s = existing_entries_millis.split(":").map(&:to_i)
+						existing_entries_millis = h * 10000.0 + m * 100.0
+					end
 				end
 				if existing_entries_millis
 					existing_entries_time = existing_entries_millis / 10000.0
