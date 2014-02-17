@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
         end
       end
     else
+      flash.now[:error] = "* Login required"
+      flash.keep
       redirect_to root_path
     end
   end
