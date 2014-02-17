@@ -6,15 +6,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_employee
 
   def require_login
-  	redirect_to root_path unless current_employee.present?
-    if params[:controller] == "projects" || params[:controller] == "project_tasks"
-      redirect_to home_path if !current_employee.is?("Admin")
-    end
-
-    if params[:controller] == "employees"
-      if !current_employee.is?("Admin") && !(["manage_account", "update_password"].include?(params[:action]))
-        redirect_to home_path
+  	if current_employee.present?
+      if params[:controller] == "projects" || params[:controller] == "project_tasks"
+        redirect_to home_path if !current_employee.is?("Admin")
       end
+
+      if params[:controller] == "employees"
+        if !current_employee.is?("Admin") && !(["manage_account", "update_password"].include?(params[:action]))
+          redirect_to home_path
+        end
+      end
+    else
+      redirect_to root_path
     end
   end
 
