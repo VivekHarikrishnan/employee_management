@@ -148,13 +148,13 @@
 }
 
 .overlayAction {
-     background-color: transparent;
+     background-color: #D5D5D5;
     background-image: url("/ajax_loader.gif");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 20px auto;
     display: none;
-    height: 30px;
+    height: 22px;
     position: absolute;
-    width: 85px;
+    width: 90px;
 }
