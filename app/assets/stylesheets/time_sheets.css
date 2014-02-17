@@ -64,7 +64,7 @@
 .timeSheetOverlay {
 	display: none;
 	background-color: #E3E3E3;
-    background-image: url("/assets/ajax_loader.gif");
+    background-image: url("/ajax_loader.gif");
     background-position: center center;
     background-repeat: no-repeat;
     height: 238px;
@@ -149,7 +149,7 @@
 
 .overlayAction {
      background-color: transparent;
-    background-image: url("/assets/ajax_loader.gif");
+    background-image: url("/ajax_loader.gif");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 20px auto;
