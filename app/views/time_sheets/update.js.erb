@@ -1,0 +1,18 @@
+<% if @time_sheet.errors.blank? %>
+	<% @time_sheet.reload %>
+	$("#from_to_time<%= @time_sheet.id %>").width("");
+	$("#edit_sheet<%= @time_sheet.id %>" ).css("display", "inline-block");
+	$("#update_sheet<%= @time_sheet.id %>" ).hide();
+	$("#cancel_sheet<%= @time_sheet.id %>" ).hide();
+	$("tr#time_sheet_data<%= @time_sheet.id %>").css("background-color", "");
+
+	$("tr#time_sheet_data<%= @time_sheet.id %>").find("td.tName").text("<%= @time_sheet.project.name %>");
+	$("tr#time_sheet_data<%= @time_sheet.id %>").find("td.ptName").text("<%= @time_sheet.project_task.name %>");
+	$("tr#time_sheet_data<%= @time_sheet.id %>").find("td.tDate").text("<%= @time_sheet.date_of_sheet %>");
+	$("tr#time_sheet_data<%= @time_sheet.id %>").find("td.tFromTo").text("<%= "#{@time_sheet.from_time.strftime("%I:%M %p")} - #{@time_sheet.to_time.strftime("%I:%M %p")}" %>");
+	$("tr#time_sheet_data<%= @time_sheet.id %>").find("td.tTotal").text("<%= @time_sheet.total_hours %>");
+<% else %>
+	$(".updateTimes").css("background", "linear-gradient(to bottom, #FFC9C5 0px, #FF7C78 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)");
+	$(".updateTimes").attr("title", "<%= @time_sheet.errors.full_messages.to_sentence %>");
+	$("#update_sheet<%= @time_sheet.id %>" ).css("display", "inline-block");
+<% end %>

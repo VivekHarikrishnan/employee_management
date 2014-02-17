@@ -1,3 +1,9 @@
+<script>
+$(document).ready(function(){
+  bindSheetActions();  
+});  
+</script>
+
 <div class="timeSheetTable">
   <div class="timeSheetOverlay"></div>
   <table>
@@ -8,17 +14,33 @@
         <th>Date</th>
         <th>Time</th>
         <th>Total Time</th>
+        <% if params[:history].blank? %>
+          <th></th>
+          <th></th>
+        <% end %>
       </tr>
     </thead>
      
      <tbody>
   	   <% @time_sheets.each do |time_sheet| %>
-  		   <tr>
-  		   	<td><%= time_sheet.project.name %></td>
-  		   	<td><%= time_sheet.project_task.name %></td>
-  		   	<td><%= time_sheet.date_of_sheet %></td>
-  		   	<td><%= "#{time_sheet.from_time.strftime("%I:%M %p")} - #{time_sheet.to_time.strftime("%I:%M %p")}" %></td>
-  		   	<td><%= time_sheet.total_hours %></td>		   	
+  		   <tr id="time_sheet_data<%= time_sheet.id %>">
+  		   	<td class="tName"><%= time_sheet.project.name %></td>
+  		   	<td class="ptName"><%= time_sheet.project_task.name %></td>
+  		   	<td class="tDate"><%= time_sheet.date_of_sheet %></td>
+  		   	<td  class="tFromTo" id="from_to_time<%= time_sheet.id %>"><%= "#{time_sheet.from_time.strftime("%I:%M %p")} - #{time_sheet.to_time.strftime("%I:%M %p")}" %></td>
+  		   	<td class="tTotal"><%= time_sheet.total_hours %></td>
+          <% if params[:history].blank? %>
+            <td>
+            <span class="overlayAction"></span>
+            <span id="edit_sheet<%= time_sheet.id %>" class="timeSheetActionIcon editTimeSheet" action-to="<%= edit_time_sheet_path(time_sheet) %>" action-type="GET">Edit</span>
+            <span id="update_sheet<%= time_sheet.id %>" class="timeSheetActionIcon updateTimeSheet" action-to="<%= time_sheet_path(time_sheet) %>" action-type="PUT">Update</span>
+            <span id="cancel_sheet<%= time_sheet.id %>" class="timeSheetActionIcon updateTimeSheet" action-to="<%= time_sheet_path(time_sheet, :cancel => true) %>" action-type="PUT">Cancel</span>
+            </td>
+            <td>
+            <span class="overlayAction"></span>
+            <span id="delete_sheet<%= time_sheet.id %>" class="timeSheetActionIcon removeTimeSheet" action-to="<%= time_sheet_path(time_sheet) %>" action-type="DELETE">Remove</span>
+            </td>
+          <% end %>
   		   </tr>
   	   <% end %>
      </tbody>

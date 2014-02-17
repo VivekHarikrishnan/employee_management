@@ -104,3 +104,57 @@
 .selectedTab:hover {
   background: linear-gradient(to bottom, #D0D0D0, #FEFEFE) repeat scroll 0 0 transparent;
 }
+
+.timeSheetActionIcon {
+    border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    height: 17px;
+    padding-top: 2px;
+    text-align: center;       
+}
+
+.editTimeSheet, .updateTimeSheet {
+  border: 1px solid #5A5A5A;
+  width: 40px;
+  background: linear-gradient(to bottom, #B7B7B7, #3A3A3A);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 1px rgba(0, 0, 0, 0.075);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.editTimeSheet:hover, .updateTimeSheet:hover {  
+  border: 1px solid #000000;
+  font-weight: bold;
+}
+
+.removeTimeSheet {
+  width: 75px;
+  border: 1px solid #B92C28;
+  background: linear-gradient(to bottom, #D9534F 0px, #C12E2A 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 1px rgba(0, 0, 0, 0.075);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.removeTimeSheet:hover {
+  background-color: #D9534F;
+  border-color: #D43F3A;
+  font-weight: bold;
+}
+
+.updateTimeSheet {
+  display: none;
+}
+
+.overlayAction {
+     background-color: transparent;
+    background-image: url("/assets/ajax_loader.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px auto;
+    display: none;
+    height: 30px;
+    position: absolute;
+    width: 85px;
+}

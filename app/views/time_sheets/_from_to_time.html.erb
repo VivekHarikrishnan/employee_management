@@ -1,0 +1,8 @@
+<div class="updateTimes">	
+<%= label_tag 'time_sheet_from_time', 'From' %>
+<%= time_select 'time_sheet', 'from_time', ampm: true, :minute_step => 10 %>
+</div>
+<div class="updateTimes">	
+<%= label_tag 'time_sheet_to_time', 'To' %>
+<%= time_select 'time_sheet', 'to_time', ampm: true, :minute_step => 10 %>
+</div>

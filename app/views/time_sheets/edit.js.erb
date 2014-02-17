@@ -1,0 +1,8 @@
+$("#from_to_time<%= @time_sheet.id %>").html('<%= escape_javascript(render 'from_to_time') %>')
+$("#from_to_time<%= @time_sheet.id %>").width("180px");
+$("#edit_sheet<%= @time_sheet.id %>" ).hide();
+$("#update_sheet<%= @time_sheet.id %>" ).css("display", "inline-block");
+$("#update_sheet<%= @time_sheet.id %>" ).parents("td").width("100px");
+$("#cancel_sheet<%= @time_sheet.id %>" ).css("display", "inline-block");
+
+$("tr#time_sheet_data<%= @time_sheet.id %>").css("background-color", "#CFCFCF");
